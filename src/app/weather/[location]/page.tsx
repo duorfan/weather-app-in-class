@@ -36,9 +36,9 @@ export default async function WeatherDetailPage({ params }: PageProps) {
 
   if (!weather) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-zinc-950 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900/20 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-white">
+          <h1 className="text-2xl font-bold text-white" style={{ fontFamily: 'Futura, system-ui, sans-serif' }}>
             Weather data unavailable
           </h1>
           <Button href="/" variant="default">
@@ -50,17 +50,18 @@ export default async function WeatherDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 px-4 py-12">
-      <main className="max-w-4xl mx-auto space-y-8">
-        {/* Header with back button */}
-        <div className="flex items-center justify-between">
-          <h1 className="text-4xl font-bold text-zinc-900 dark:text-white">
-            {weather.city}
-          </h1>
-          <Button href="/" variant="ghost">
-            ← Back to Home
-          </Button>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900/20">
+      <div className="px-4 py-6 md:container md:mx-auto md:px-6 md:py-8">
+        <main className="max-w-4xl mx-auto space-y-8">
+          {/* Header with back button */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 md:mb-0" style={{ fontFamily: 'Futura, system-ui, sans-serif' }}>
+              {weather.city}
+            </h1>
+            <Button href="/" variant="ghost">
+              ← Back to Home
+            </Button>
+          </div>
 
         {/* Current weather - Large display */}
         <CurrentWeatherDetail
@@ -70,7 +71,16 @@ export default async function WeatherDetailPage({ params }: PageProps) {
         />
 
         {/* 3-Day Forecast */}
-        <ForecastCard forecast={weather.forecast} />
+        <div className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-light text-white" style={{ fontFamily: 'Futura, system-ui, sans-serif' }}>
+            3-Day Forecast
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {weather.forecast.slice(0, 3).map((day, index) => (
+              <ForecastCard key={index} forecast={day} />
+            ))}
+          </div>
+        </div>
 
         {/* Action buttons */}
         <div className="flex justify-center gap-4">
@@ -78,7 +88,8 @@ export default async function WeatherDetailPage({ params }: PageProps) {
             Search Another City
           </Button>
         </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }

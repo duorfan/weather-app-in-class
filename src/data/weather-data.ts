@@ -140,6 +140,140 @@ export const DUMMY_WEATHER_DATA: Record<string, WeatherData> = {
       },
     ],
   },
+  raleigh: {
+    city: "Raleigh",
+    latitude: 35.7796,
+    longitude: -78.6382,
+    current: {
+      temperature: 67,
+      feelsLike: 66,
+      humidity: 60,
+      windSpeed: 8,
+      condition: {
+        code: 1,
+        description: "Mainly clear",
+      },
+    },
+    forecast: [
+      {
+        date: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+        maxTemp: 74,
+        minTemp: 59,
+        condition: {
+          code: 2,
+          description: "Partly cloudy",
+        },
+      },
+      {
+        date: new Date(Date.now() + 172800000).toISOString().split("T")[0],
+        maxTemp: 77,
+        minTemp: 62,
+        condition: {
+          code: 1,
+          description: "Mainly clear",
+        },
+      },
+      {
+        date: new Date(Date.now() + 259200000).toISOString().split("T")[0],
+        maxTemp: 70,
+        minTemp: 58,
+        condition: {
+          code: 61,
+          description: "Slight rain",
+        },
+      },
+    ],
+  },
+
+  "chapel hill": {
+    city: "Chapel Hill",
+    latitude: 35.9132,
+    longitude: -79.0558,
+    current: {
+      temperature: 65,
+      feelsLike: 64,
+      humidity: 63,
+      windSpeed: 6,
+      condition: {
+        code: 2,
+        description: "Partly cloudy",
+      },
+    },
+    forecast: [
+      {
+        date: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+        maxTemp: 72,
+        minTemp: 56,
+        condition: {
+          code: 1,
+          description: "Mainly clear",
+        },
+      },
+      {
+        date: new Date(Date.now() + 172800000).toISOString().split("T")[0],
+        maxTemp: 74,
+        minTemp: 58,
+        condition: {
+          code: 3,
+          description: "Overcast",
+        },
+      },
+      {
+        date: new Date(Date.now() + 259200000).toISOString().split("T")[0],
+        maxTemp: 68,
+        minTemp: 55,
+        condition: {
+          code: 61,
+          description: "Slight rain",
+        },
+      },
+    ],
+  },
+
+  beijing: {
+    city: "Beijing",
+    latitude: 39.9042,
+    longitude: 116.4074,
+    current: {
+      temperature: 59,
+      feelsLike: 57,
+      humidity: 48,
+      windSpeed: 12,
+      condition: {
+        code: 3,
+        description: "Hazy",
+      },
+    },
+    forecast: [
+      {
+        date: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+        maxTemp: 65,
+        minTemp: 48,
+        condition: {
+          code: 2,
+          description: "Partly cloudy",
+        },
+      },
+      {
+        date: new Date(Date.now() + 172800000).toISOString().split("T")[0],
+        maxTemp: 68,
+        minTemp: 50,
+        condition: {
+          code: 1,
+          description: "Mainly clear",
+        },
+      },
+      {
+        date: new Date(Date.now() + 259200000).toISOString().split("T")[0],
+        maxTemp: 62,
+        minTemp: 47,
+        condition: {
+          code: 61,
+          description: "Slight rain",
+        },
+      },
+    ],
+  },
 };
 
 export function getDummyWeatherData(cityName: string): WeatherData | null {
